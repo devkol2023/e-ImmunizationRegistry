@@ -21,22 +21,47 @@ h2 {
 /* Date Navigation */
 .date-navigation {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the start */
     align-items: center;
-    margin: 20px 0;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+    padding: 10px;
+    gap: 10px;
+    scrollbar-width: thin; /* For Firefox */
+    -ms-overflow-style: none; /* For IE and Edge */
+}
 
-    .date-item {
-        padding: 10px 15px;
-        margin: 0 5px;
-        cursor: pointer;
-        border-radius: 5px;
-        background: #ddd;
-        transition: 0.3s;
+/* Hide scrollbar for WebKit browsers */
+.date-navigation::-webkit-scrollbar {
+    height: 5px;
+}
 
-        &.active {
-            background: #007bff;
-            color: white;
-        }
+.date-navigation::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.date-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ddd;
+    transition: 0.3s;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Active state */
+.date-item.active {
+    background: #007bff;
+    color: white;
+}
+
+/* Responsive: Ensure horizontal scrolling on small screens */
+@media (max-width: 768px) {
+    .date-navigation {
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: auto; /* Keep scrolling enabled */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
     }
 }
 
@@ -142,10 +167,10 @@ h2 {
         grid-template-columns: 1fr; /* 1 item per row on mobile */
     }
 
-    .date-navigation {
-        flex-direction: column;
-        gap: 10px;
-    }
+    // .date-navigation {
+    //     flex-direction: column;
+    //     gap: 10px;
+    // }
 
     .center-card {
         padding: 15px;
