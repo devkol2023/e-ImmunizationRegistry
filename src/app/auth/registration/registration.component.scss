@@ -1,0 +1,70 @@
+/* registration.component.css */
+.registration-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .image-section {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .image-section img {
+    width: 100%; /* Adjust based on your specific needs */
+    height: auto;
+    border-radius: 8px; /* Optional, for rounded corners */
+  }
+  
+  .info-section {
+    flex: 2;
+    padding: 20px;
+    background: #f4f4f8;
+    border-radius: 8px;
+  }
+  
+  .info-section h1 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .info-section p {
+    margin-bottom: 20px;
+  }
+  
+  .info-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .note-section h2 {
+    margin-top: 20px;
+  }
+  
+  .note-section ul {
+    list-style: inside;
+  }
+  
+  .note-section li {
+    margin-bottom: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .registration-container {
+      flex-direction: column;
+    }
+  
+    .image-section, .info-section {
+      flex: none;
+      width: 100%;
+    }
+  }
+  
