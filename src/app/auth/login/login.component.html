@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="image-container">
+      <!-- Image goes here, use an img tag or background-image in CSS -->
+      <img src="/images/family.jpg" alt="Family" />
+      
+    </div>
+    <div class="form-container">
+      <!-- Form code remains the same -->
+      <form [formGroup]="loginForm">
+        <h2>Register or Sign In for Vaccination</h2>
+        <p>An OTP will be sent to your mobile number for verification</p>
+        <!-- <input type="text" placeholder="Enter your mobile number" formControlName="mobileNumber"> -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput formControlName="mobileNumber" placeholder="Enter Mobile Number" autocomplete="off" />
+            <mat-error *ngIf="loginForm.get('mobileNumber')?.touched && loginForm.get('mobileNumber')?.invalid">
+             Mobile Number is required
+            </mat-error>
+          </mat-form-field>
+        <button (click)="getOTP()" [disabled]="!loginForm.valid">GET OTP</button>
+        <div class="terms">
+          By Sign In/Registration, I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </div>
+        <!-- <div class="or-section">OR</div>
+        <button class="login-btn">Login with DigiLocker MeriPehchaan</button> -->
+      </form>
+    </div>
+  </div>
+  
