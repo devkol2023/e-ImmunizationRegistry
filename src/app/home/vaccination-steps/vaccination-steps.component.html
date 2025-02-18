@@ -1,0 +1,15 @@
+<div class="vaccination-steps-container">
+    <h2 class="steps-header">Get Vaccinated in 3 Easy Steps</h2>
+    <div class="steps-grid">
+        <div class="step-card" *ngFor="let step of steps; let i = index">
+            <div class="step-icon">
+                <mat-icon aria-hidden="false" >{{ step.icon }}</mat-icon>
+            </div>
+            <div class="step-details">
+                <h5>Step {{ i + 1 }}: {{ step.title }}</h5>
+                <p>{{ step.description }}</p>
+                <a href="{{ step.link }}">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>

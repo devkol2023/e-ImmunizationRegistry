@@ -1,0 +1,53 @@
+<div class="search-vaccination-container">
+    <h2 class="search-title">Search Your Nearest Vaccination Center</h2>
+    <p class="search-subtitle">
+        Get a preview list of the nearest centers and check availability of vaccination slots.
+    </p>
+
+    <!-- Tabs for Search Options -->
+    <mat-tab-group class="search-tabs" (selectedTabChange)="onTabChanged($event);">
+        <mat-tab label="By District">
+            <div class="search-form">
+                <!-- Dropdowns in same row -->
+                <div class="dropdowns">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Your State</mat-label>
+                        <mat-select [(value)]="selectedState" (selectionChange)="onStateChange()">
+                            <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Your District</mat-label>
+                        <mat-select [(value)]="selectedDistrict">
+                            <mat-option *ngFor="let district of districts" [value]="district">
+                                {{ district }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                
+                <!-- Search Button -->
+                <button mat-raised-button color="primary" class="btn" (click)="searchByDistrict()">
+                    Search
+                </button>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="By PIN">
+            <div class="search-form">
+                <mat-form-field appearance="outline" class="pin-input">
+                    <mat-label>Enter PIN Code</mat-label>
+                    <input matInput [(ngModel)]="pinCode" type="number" placeholder="Enter 6-digit PIN">
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="btn" (click)="searchByPin()">
+                    Search
+                </button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<ng-container *ngIf="showSearchResult">
+    <app-vaccination-center-result></app-vaccination-center-result>
+</ng-container>

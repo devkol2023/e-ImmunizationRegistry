@@ -1,0 +1,125 @@
+/* top-statistics-banner.component.scss */
+.top-stats-banner {
+    background: linear-gradient(160deg, #00695c, #004d40); // Enhanced gradient for depth
+    color: #ffffff;
+    padding: 40px 60px; // Increased padding for better spacing
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap; // Allows items to wrap on smaller screens
+
+    .stats-container {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        flex-wrap: wrap; // Allows individual containers to wrap
+        
+        .icon {
+            font-size: 40px;
+            color: #ffffff;
+            margin-right: 20px;
+        }
+
+        .text-container {
+            h4 {
+                margin-bottom: 5px;
+                font-size: 1.6rem;
+                font-weight: 600;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+                font-weight: 800;
+            }
+        }
+    }
+
+    .cta-button {
+        background-color: #ffc107;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: background-color 0.3s, transform 0.2s;
+
+        &:hover {
+            background-color: #ffb300;
+            transform: scale(1.05);
+        }
+    }
+}
+
+/* ✅ Responsive Adjustments for Mobile and Tablet Screens */
+@media (max-width: 1024px) {
+    .top-stats-banner {
+        flex-direction: column; // Stack elements vertically
+        padding: 30px 40px;
+        text-align: center;
+
+        .stats-container {
+            flex-direction: column;
+            margin-bottom: 20px; // Adds spacing between elements
+            text-align: center;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .top-stats-banner {
+        padding: 25px;
+        .stats-container {
+            .icon {
+                font-size: 30px; // Reduce icon size on smaller screens
+            }
+            .text-container h4 {
+                font-size: 1.4rem;
+            }
+            .text-container .stat-number {
+                font-size: 2.4rem;
+            }
+        }
+
+        .cta-button {
+            font-size: 1rem;
+            padding: 10px 18px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .top-stats-banner {
+        padding: 20px;
+        .stats-container {
+            flex-direction: column;
+            align-items: center;
+            
+            .icon {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .text-container h4 {
+                font-size: 1.2rem;
+            }
+
+            .text-container .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        .cta-button {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            width: 100%; // Full width button for better usability on mobile
+        }
+    }
+}

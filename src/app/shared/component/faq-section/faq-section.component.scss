@@ -1,0 +1,45 @@
+.facts-container {
+    width: 100%;
+    max-width: 80%;
+    margin: auto;
+}
+
+.facts-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.fact-card {
+    background: #ffcc00;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fact-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.fact-content {
+    background: #333399;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.fact-image {
+    width: 80%;
+    height: 700px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 5px;
+}

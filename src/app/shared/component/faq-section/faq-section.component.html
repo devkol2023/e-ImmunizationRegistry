@@ -1,0 +1,14 @@
+<div class="facts-container">
+    <h2 class="facts-header">Facts to Remember</h2>
+    <div *ngFor="let fact of facts" class="fact-card" (click)="toggleFact(fact)">
+        <div class="fact-header">
+            <span>{{ fact.title }}</span>
+            <mat-icon>{{ fact.expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}</mat-icon>
+        </div>
+        <div class="fact-content" *ngIf="fact.expanded">
+            <p>{{ fact.description }}</p>
+            <!-- Display image if it exists -->
+            <img *ngIf="fact.imageUrl" [src]="fact.imageUrl" alt="Fact Image" class="fact-image">
+        </div>
+    </div>
+</div>

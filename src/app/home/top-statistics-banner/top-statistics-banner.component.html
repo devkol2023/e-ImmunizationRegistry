@@ -1,0 +1,18 @@
+<!-- top-statistics-banner.component.html -->
+<div class="top-stats-banner">
+    <div class="stats-container">
+        <span class="material-icons icon">local_hospital</span> <!-- Icon for healthcare services -->
+        <div class="text-container">
+            <h4>Total Healthcare Services</h4>
+            <p class="stat-number">{{ totalServices | number }}</p>
+        </div>
+    </div>
+    <div class="stats-container">
+        <span class="material-icons icon">person_add</span> <!-- Icon for new patients -->
+        <div class="text-container">
+            <h4>New Patients Today</h4>
+            <p class="stat-number">{{ newPatientsToday | number }}</p>
+        </div>
+    </div>
+    <button class="cta-button">Learn About Our Services</button>
+</div>
