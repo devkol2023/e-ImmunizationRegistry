@@ -1,0 +1,15 @@
+.carousel-item img {
+    // object-fit: cover;
+    height: 550px; /* Adjust height as needed */
+  }
+  
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    color: white;
+    padding: 20px;
+  }
+  
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #000; /* Dark color for arrows */
+  }
+  

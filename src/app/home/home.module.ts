@@ -6,13 +6,15 @@ import { HomeComponent } from './home.component';
 import { TopStatisticsBannerComponent } from './top-statistics-banner/top-statistics-banner.component';
 import { VaccinationStepsComponent } from './vaccination-steps/vaccination-steps.component';
 import { SharedModule } from '../shared/shared.module';
+import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     TopStatisticsBannerComponent,
-    VaccinationStepsComponent
+    VaccinationStepsComponent,
+    ImageCarouselComponent
   ],
   imports: [
     CommonModule,

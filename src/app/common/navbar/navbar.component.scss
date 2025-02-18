@@ -1,0 +1,75 @@
+/* General Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007F7F; /* Adjust the background color as needed */
+    padding: 10px 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    width: 50px; /* Adjust the logo size */
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .navbar-link:hover {
+    text-decoration: underline;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .language-selector {
+    font-size: 14px;
+  }
+  
+  .language-selector select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .button {
+    background-color: #ffc107;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #ffb300;
+        // transform: scale(1.05);
+    }
+}
