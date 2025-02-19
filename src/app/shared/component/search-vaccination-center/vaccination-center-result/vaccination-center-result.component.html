@@ -14,20 +14,21 @@
     <!-- Vaccination Centers List -->
     <div class="vaccination-centers" *ngIf="filteredCenters.length > 0; else noCenters">
         <div class="center-card" *ngFor="let center of filteredCenters">
-            <div class="center-header">
-                <h3 class="steps-header">{{ center.name }}</h3>
-                <span class="facility-tag" [ngClass]="center.type">{{ center.type }}</span>
-            </div>
-            <p>{{ center.address }}</p>
-            <div class="slots">
-                <ng-container *ngFor="let slot of center.slots">
-                    <div class="slot" [ngClass]="slot.status" *ngIf="slot.date === selectedDate">
-                        {{ slot.time === 'NA' ? 'No Slots Available' : slot.time }}
-                    </div>
-                </ng-container>
-            </div>
+          <div class="center-header">
+            <h3 class="steps-header">{{ center.name }}</h3>
+            <span class="facility-tag" [ngClass]="center.type">{{ center.type }}</span>
+          </div>
+          <p>{{ center.address }}</p>
+          <div class="slots">
+            <ng-container *ngFor="let slot of center.slots">
+              <div class="slot" [ngClass]="slot.status">
+                <span *ngIf="slot.status === 'Available'" (click)="bookSlot(center.name, slot.time)" style="cursor: pointer;">{{ slot.time }}</span>
+                <span *ngIf="slot.status !== 'Available'">{{ 'No Slots Available' }}</span>
+              </div>
+            </ng-container>
+          </div>
         </div>
-    </div>
+      </div>
 
     <!-- No Centers Found -->
     <ng-template #noCenters>

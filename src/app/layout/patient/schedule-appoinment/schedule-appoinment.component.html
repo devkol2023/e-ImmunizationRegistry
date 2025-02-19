@@ -1,7 +1,35 @@
-<h3 class="mb-3">
-    <mat-icon>arrow_back</mat-icon> Book Appointment for Dose 1
-  </h3>
-  <p class="text-muted">
-    The slot availability data displayed in the search is provided by government and private vaccination centers.
-  </p>
-  <app-search-vaccination-center></app-search-vaccination-center>
+<div class="container-new">
+    <!-- Page Header -->
+    <div class="header">
+      <button mat-icon-button class="back-button" routerLink="/layout/patient/dashboard">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2>Book Appointment for Dose 1</h2>
+    </div>
+  
+    <!-- Info Text -->
+    <p class="info-text">
+      The slot availability data displayed in the search is provided by government and private vaccination centers.
+    </p>
+  
+    <!-- Search Vaccination Center Component -->
+    <app-search-vaccination-center></app-search-vaccination-center>
+  
+    <!-- Guidelines Box -->
+    <mat-card class="guidelines mt-4">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>info</mat-icon> On-site Registration & Vaccination Guidelines
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li><mat-icon>update</mat-icon> Slots are updated by state vaccination centers and private hospitals every few hours.</li>
+          <li><mat-icon>search</mat-icon> You are allowed 20 searches within 15 minutes.</li>
+          <li><mat-icon>location_on</mat-icon> All vaccination centers include both Government and Private locations.</li>
+          <li><mat-icon>call</mat-icon> For slot availability and timing, contact the vaccination center directly.</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

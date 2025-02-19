@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface VaccinationCenter {
   name: string;
@@ -42,7 +43,7 @@ export class VaccinationCenterResultComponent implements OnInit {
 
   filteredCenters: VaccinationCenter[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.generateDateRange();
@@ -116,6 +117,16 @@ export class VaccinationCenterResultComponent implements OnInit {
   filterCenters(): void {
     this.filteredCenters = this.centers.filter((center) => {
       return center.slots.some(slot => slot.date === this.selectedDate);
+    });
+  }
+
+  bookSlot(centerName: string, slotTime: string): void {
+    this.router.navigate(['/layout/patient/appoinment-confirmation'], {
+      queryParams: {
+        center: centerName,
+        date: this.selectedDate,
+        time: slotTime
+      }
     });
   }
 }

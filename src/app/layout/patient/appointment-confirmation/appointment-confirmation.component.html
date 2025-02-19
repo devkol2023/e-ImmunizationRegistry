@@ -1,0 +1,41 @@
+<div class="container">
+    <!-- Page Header -->
+    <h2>Confirm Your Appointment</h2>
+    <p class="info-text">Please verify your details before confirming your booking.</p>
+  
+    <!-- Booking Details -->
+    <mat-card class="booking-details">
+      <mat-card-content>
+        <h3><mat-icon>local_hospital</mat-icon> {{ selectedCenter }}</h3>
+        <p><mat-icon>event</mat-icon> Date: <strong>{{ selectedDate }}</strong></p>
+        <p><mat-icon>schedule</mat-icon> Time: <strong>{{ selectedTime }}</strong></p>
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- User Details Form -->
+    <mat-card class="user-details">
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput [(ngModel)]="userName" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>ID Number</mat-label>
+          <input matInput [(ngModel)]="userId" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel" [(ngModel)]="userPhone" required>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Confirm & Cancel Buttons -->
+    <div class="buttons">
+        <button mat-stroked-button class="btn" (click)="cancelBooking()">Cancel</button>
+      <button mat-raised-button class="btn" (click)="confirmBooking()">Confirm Booking</button>
+    </div>
+  </div>
+  

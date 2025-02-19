@@ -7,13 +7,15 @@ import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard
 import { SharedModule } from '../../shared/shared.module';
 import { AngularMaterialModule } from '../../shared/angular-material.module';
 import { ScheduleAppoinmentComponent } from './schedule-appoinment/schedule-appoinment.component';
+import { AppointmentConfirmationComponent } from './appointment-confirmation/appointment-confirmation.component';
 
 
 @NgModule({
   declarations: [
     PatientComponent,
     PatientDashboardComponent,
-    ScheduleAppoinmentComponent
+    ScheduleAppoinmentComponent,
+    AppointmentConfirmationComponent
   ],
   imports: [
     CommonModule,

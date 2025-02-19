@@ -1,0 +1,58 @@
+/* General Layout */
+.container {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Header */
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .info-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Booking Details */
+  .booking-details {
+    background: #f8f9fa;
+    border-left: 5px solid #007bff;
+    margin-bottom: 20px;
+  }
+  
+  mat-card-content h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  mat-card-content p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+  }
+  
+  /* User Details Form */
+  .user-details mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  /* Buttons */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    width: 48%;
+  }
+  
