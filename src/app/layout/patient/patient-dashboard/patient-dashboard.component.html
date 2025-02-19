@@ -91,7 +91,7 @@
             <mat-icon>download</mat-icon> Certificate
           </button>
 
-          <button *ngIf="appointment.status !== 'Completed'" mat-raised-button color="primary" routerLink="/layout/patient/schedule-appoinment">
+          <button *ngIf="appointment.status !== 'Completed'" mat-raised-button color="primary" (click)="schedule(patient, appointment)">
             <mat-icon>event</mat-icon> {{ appointment.status === 'Pending' ? 'Schedule' : 'Reschedule'}}
           </button>
         </div>

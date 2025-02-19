@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Appointment {
   dose: string;
@@ -53,6 +54,8 @@ export class PatientDashboardComponent {
     }
   ];
 
+  constructor(private router: Router) { }
+
   downloadCertificate(dose: string, vaccine: string, name: string): void {
     alert(`Downloading certificate for ${dose} - ${vaccine} for ${name}`);
   }
@@ -65,5 +68,9 @@ export class PatientDashboardComponent {
     if (confirmation) {
       this.patients = this.patients.filter(p => p !== patient);
     }
+  }
+
+  schedule(patient: Patient, appointment: Appointment): void {
+    this.router.navigate(['/layout/patient/schedule-appoinment'])
   }
 }
