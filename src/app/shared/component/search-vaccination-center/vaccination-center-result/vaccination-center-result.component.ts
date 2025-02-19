@@ -56,34 +56,51 @@ export class VaccinationCenterResultComponent implements OnInit {
   generateDateRange(): void {
     const today = new Date();
     this.availableDates = [];
-    for (let i = 0; i < 7; i++) {
+  
+    for (let i = 0; i < 10; i++) {
       const futureDate = new Date(today);
       futureDate.setDate(today.getDate() + i);
       this.availableDates.push(futureDate.toISOString().split('T')[0]); // Format: YYYY-MM-DD
     }
+  
+    this.selectedDate = this.availableDates[0]; // Set default selected date
   }
-
+  
   /**
-   * Moves to the previous date in the available list
+   * Moves to the previous date in the available list and dynamically updates the range
    */
   prevDate(): void {
-    const currentIndex = this.availableDates.indexOf(this.selectedDate);
-    if (currentIndex > 0) {
-      this.selectedDate = this.availableDates[currentIndex - 1];
-      this.filterCenters();
-    }
+    if (this.availableDates.length === 0) return;
+  
+    const firstDate = new Date(this.availableDates[0]);
+    firstDate.setDate(firstDate.getDate() - 1);
+    const newFirstDate = firstDate.toISOString().split('T')[0];
+  
+    // Insert the new date at the start and remove the last date
+    this.availableDates.unshift(newFirstDate);
+    this.availableDates.pop();
+  
+    // this.selectedDate = this.availableDates[0]; // Move to the new first date
+    this.filterCenters();
   }
-
+  
   /**
-   * Moves to the next date in the available list
+   * Moves to the next date in the available list and dynamically updates the range
    */
   nextDate(): void {
-    const currentIndex = this.availableDates.indexOf(this.selectedDate);
-    if (currentIndex < this.availableDates.length - 1) {
-      this.selectedDate = this.availableDates[currentIndex + 1];
-      this.filterCenters();
-    }
-  }
+    if (this.availableDates.length === 0) return;
+  
+    const lastDate = new Date(this.availableDates[this.availableDates.length - 1]);
+    lastDate.setDate(lastDate.getDate() + 1);
+    const newLastDate = lastDate.toISOString().split('T')[0];
+  
+    // Add the new date at the end and remove the first date
+    this.availableDates.push(newLastDate);
+    this.availableDates.shift();
+  
+    // this.selectedDate = this.availableDates[this.availableDates.length - 1]; // Move to the new last date
+    this.filterCenters();
+  }  
 
   /**
    * Selects a specific date for filtering
