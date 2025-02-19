@@ -1,70 +1,87 @@
-<div class="container mt-4">
-    <!-- Header Section -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3>MOHW Jamaica Vaccination Portal</h3>
-      <div class="button-container">
-        <button mat-raised-button class="btn action-btn">
-          <mat-icon>report_problem</mat-icon> Raise an Issue
-        </button>
-        <button mat-raised-button class="btn action-btn">
-          <mat-icon>person_add</mat-icon> Add Member
-        </button>
-      </div>
-    </div>
-  
-    <!-- Vaccination Cards Loop -->
-    <div *ngFor="let patient of patients" class="mb-4">
-      <mat-card class="vaccination-card">
-        <!-- Header with User Icon -->
-        <mat-card-header>
-          <mat-card-title class="d-flex align-items-center">
-            <mat-icon class="user-icon">person</mat-icon>
-            <span class="ms-3">{{ patient.name }}</span>
-          </mat-card-title>
-
-          <!-- Menu Icon with Dropdown -->
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon class="menu-icon">more_vert</mat-icon>
-          </button>
-
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="editPatient(patient)">
-              <mat-icon>edit</mat-icon> Edit
-            </button>
-            <button mat-menu-item (click)="deletePatient(patient)">
-              <mat-icon>delete</mat-icon> Delete
-            </button>
-          </mat-menu>
-        </mat-card-header>
-  
-        <!-- Personal Details -->
-        <mat-card-content>
-          <div class="row">
-            <div class="col-md-6">
-              <p><strong>REF ID:</strong> <span class="text-danger">{{ patient.refId }}</span></p>
-              <p><strong>SECRET CODE:</strong> {{ patient.secretCode }}</p>
-            </div>
-            <div class="col-md-6">
-              <p><strong>PHOTO ID:</strong> {{ patient.photoId }}</p>
-              <p><strong>ID NUMBER:</strong> {{ patient.idNumber }}</p>
-              <p><strong>YEAR OF BIRTH:</strong> {{ patient.birthYear }}</p>
-            </div>
-          </div>
-        </mat-card-content>
-  
-        <!-- Vaccination Status & Action -->
-        <mat-card-actions align="end" class="alert-danger">
-          <div class="d-flex align-items-center">
-            <mat-icon class="text-danger me-2">error_outline</mat-icon>
-            <div>
-              <strong>{{ patient.dose }}</strong>: Appointment not scheduled
-            </div>
-          </div>
-          <button mat-raised-button class="btn" routerLink="/layout/patient/schedule-appoinment">
-            <mat-icon>event</mat-icon> Schedule
-          </button>
-        </mat-card-actions>
-      </mat-card>
+<div class="dashboard-container">
+  <!-- Header Section -->
+  <div class="header">
+    <h2 class="header-txt">MOHW Jamaica Vaccination Portal</h2>
+    <div class="button-container">
+      <button mat-raised-button class="btn action-btn">
+        <mat-icon>report_problem</mat-icon> Raise an Issue
+      </button>
+      <button mat-raised-button class="btn action-btn">
+        <mat-icon>person_add</mat-icon> Add Member
+      </button>
     </div>
   </div>
-  
+
+  <!-- Patient List -->
+  <div *ngFor="let patient of patients" class="patient-card">
+    <mat-card>
+      <mat-card-header class="patient-header">
+        <mat-card-title>
+          <div class="patient-info-header">
+            <mat-icon class="user-icon">person</mat-icon>
+            <div class="patient-name">
+              <h3>{{ patient.name }}</h3>
+              <p class="patient-status">Registered Patient</p>
+            </div>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      
+      <mat-card-content style="padding: 0;">
+        <div class="info-grid">
+          <div class="info-item">
+            <mat-icon class="info-icon">badge</mat-icon>
+            <span class="info-label">REF ID:</span>
+            <span class="info-value text-danger">{{ patient.refId }}</span>
+          </div>
+      
+          <div class="info-item">
+            <mat-icon class="info-icon">vpn_key</mat-icon>
+            <span class="info-label">SECRET CODE:</span>
+            <span class="info-value">{{ patient.secretCode }}</span>
+          </div>
+      
+          <div class="info-item">
+            <mat-icon class="info-icon">credit_card</mat-icon>
+            <span class="info-label">PHOTO ID:</span>
+            <span class="info-value">{{ patient.photoId }}</span>
+          </div>
+      
+          <div class="info-item">
+            <mat-icon class="info-icon">fingerprint</mat-icon>
+            <span class="info-label">ID NUMBER:</span>
+            <span class="info-value">{{ patient.idNumber }}</span>
+          </div>
+      
+          <div class="info-item">
+            <mat-icon class="info-icon">calendar_today</mat-icon>
+            <span class="info-label">YEAR OF BIRTH:</span>
+            <span class="info-value">{{ patient.birthYear }}</span>
+          </div>
+        </div>
+      </mat-card-content>      
+
+      <!-- Vaccination Appointments -->
+      <div class="appointments">
+        <div *ngFor="let appointment of patient.appointments" class="appointment-card" [ngClass]="appointment.status">
+          <div class="appointment-info">
+            <mat-icon *ngIf="appointment.status === 'Completed'" class="check-icon">check_circle</mat-icon>
+            <mat-icon *ngIf="appointment.status === 'Scheduled'" class="clock-icon">schedule</mat-icon>
+            <mat-icon *ngIf="appointment.status === 'Pending'" class="alert-icon">error_outline</mat-icon>
+
+            <span class="dose-title">{{ appointment.dose }} - {{ appointment.vaccine }}</span>
+            <p class="dose-location">{{ appointment.location }}, {{ appointment.date }}</p>
+          </div>
+
+          <button *ngIf="appointment.status === 'Completed'" mat-stroked-button color="primary" (click)="downloadCertificate(appointment.dose, appointment.vaccine, patient.name)">
+            <mat-icon>download</mat-icon> Certificate
+          </button>
+
+          <button *ngIf="appointment.status !== 'Completed'" mat-raised-button color="primary" routerLink="/layout/patient/schedule-appoinment">
+            <mat-icon>event</mat-icon> {{ appointment.status === 'Pending' ? 'Schedule' : 'Reschedule'}}
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

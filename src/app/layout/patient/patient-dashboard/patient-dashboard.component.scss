@@ -1,87 +1,242 @@
+/* General Layout */
+.dashboard-container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  /* Card Styling */
-  .vaccination-card {
-    border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-    transition: 0.3s ease-in-out;
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  color: #004d40;
+  font-weight: bold;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+/* Patient Card */
+.patient-card mat-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+
+/* Modernized Patient Info Design */
+.patient-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #6a6a6a 0%, #3b646f 100%);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.patient-info-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.patient-name h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.patient-status {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Patient Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 15px 0;
+  background: #f9f9f9;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Individual Info Item */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons in Info Section */
+.info-icon {
+  color: #007bff;
+  font-size: 20px;
+}
+
+.info-label {
+  // font-weight: bold;
+  color: #333;
+}
+
+.info-value {
+  font-weight: normal;
+  color: #555;
+  font-size: 13px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .vaccination-card:hover {
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+
+  .patient-header {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  /* Header Styling */
-  mat-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .info-grid {
+    grid-template-columns: 1fr;
   }
-  
-  /* User Icon */
-  .user-icon {
-    font-size: 35px;
-    color: #007bff;
-    width: 30px;
+}
+
+/* Ensure the appointments are in a row */
+.appointments {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 15px;
+  justify-content: space-between;
+}
+
+/* Ensure appointment cards take equal width */
+.appointment-card {
+  flex: 1; /* Make all cards equal width */
+  min-width: 280px; /* Prevent cards from shrinking too much */
+  max-width: 32%; /* Prevent too much stretching on large screens */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Completed Dose */
+.appointment-card.Completed {
+  background-color: #eaf8e6;
+  border-left: 5px solid green;
+}
+
+/* Scheduled Dose */
+.appointment-card.Scheduled {
+  background-color: #fff3cd;
+  border-left: 5px solid #856404;
+}
+
+/* Pending Dose */
+.appointment-card.Pending {
+  background-color: #f8d7da;
+  border-left: 5px solid red;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .appointments {
+    flex-direction: column; /* Stack cards on smaller screens */
   }
-  
-  /* Three Dots Menu Icon */
-  .menu-icon {
-    font-size: 22px;
-    cursor: pointer;
-    color: #6c757d;
+
+  .appointment-card {
+    max-width: 100%; /* Make full width on small screens */
   }
-  
-  /* Details Section */
-  mat-card-content {
-    padding: 20px;
-  }
-  
-  /* Alert Box */
-  mat-card-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-top: 1px solid #f5c6cb;
-    background-color: #fbeaea;
-    color: #721c24;
+}
+
+
+/* Icons */
+.check-icon {
+  color: green;
+}
+
+.clock-icon {
+  color: #856404;
+}
+
+.alert-icon {
+  color: red;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
   }
 
   .button-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px; /* Adds spacing between buttons */
-    margin-bottom: 20px; /* Adds margin below buttons */
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+
+/* Appointment Info (Ensures Proper Alignment) */
+.appointment-info {
+  display: flex;
+  align-items: center; /* Vertically aligns text and icon */
+  gap: 8px; /* Adds spacing between icon and text */
+}
+
+/* Dose Icon */
+.appointment-info mat-icon {
+  font-size: 27px;
+  color: green;
+  flex-shrink: 0; /* Prevents icon from resizing */
+  width: 9%;
+}
+
+/* Dose Title */
+.dose-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 50%
+}
+
+/* Location & Date */
+.dose-location {
+  font-size: 14px;
+  color: #555;
+  margin-left: 28px; /* Ensures it aligns properly under the text */
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .appointment-info {
+    flex-direction: row; /* Ensures text and icon stay in one row */
   }
 
-  /* Button Styling */
-.action-btn {
-    font-weight: bold;
-    white-space: nowrap;
-    width: 157px !important;
+  .dose-location {
+    margin-left: 28px; /* Ensures consistent spacing */
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .button-container {
-        align-items: center;
-        gap: 10px;
-      }
-
-      .action-btn {
-        width: 100%; /* Make buttons full width for better mobile UX */
-      }
-    mat-card-actions {
-      flex-direction: column;
-      text-align: center;
-    }
-    .d-flex.justify-content-between.align-items-center {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-
-  
+}
