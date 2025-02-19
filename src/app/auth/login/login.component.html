@@ -7,17 +7,32 @@
     <div class="form-container">
       <!-- Form code remains the same -->
       <form [formGroup]="loginForm">
-        <h2>Register or Sign In for Vaccination</h2>
-        <p>An OTP will be sent to your mobile number for verification</p>
+        <div class="register-h">Register or Sign In for Vaccination</div>
+        <div class="otp-text">An OTP will be sent to your mobile number for verification</div>
         <!-- <input type="text" placeholder="Enter your mobile number" formControlName="mobileNumber"> -->
-        <mat-form-field appearance="outline" class="full-width">
+        <mat-form-field appearance="outline" class="input-field">
             <mat-label>Mobile Number</mat-label>
-            <input matInput formControlName="mobileNumber" placeholder="Enter Mobile Number" autocomplete="off" />
+            <input type="number" matInput formControlName="mobileNumber" placeholder="Enter Mobile Number" autocomplete="off" />
             <mat-error *ngIf="loginForm.get('mobileNumber')?.touched && loginForm.get('mobileNumber')?.invalid">
              Mobile Number is required
             </mat-error>
           </mat-form-field>
-        <button (click)="getOTP()" [disabled]="!loginForm.valid">GET OTP</button>
+        <button (click)="getOTP()" [disabled]="!loginForm.valid" class="btn" style="margin-top: -10px;min-width: 150px;">Get OTP</button>
+
+        <div class="otp-form" *ngIf="otpRequested">
+          <!-- <div class="login-title mb-2" style="width: 100%;">Verify OTP</div> -->
+          <div class="otp-text">Please enter 6 digit OTP</div>
+          <form (ngSubmit)="onOtpSubmit()">
+              <div class="otp-input-container">
+                  <input *ngFor="let box of otpBoxes; let i = index" maxlength="1" type="text" class="otp-box" [(ngModel)]="otpValues[i]"
+                      (input)="onOtpInput($event, i)" name="otp" (keydown.backspace)="onOtpBackspace($event, i)" />
+              </div>
+                  <button type="submit" class="btn" style="min-width: 150px;" [disabled]="otpValues.join('').length != 6">Verify</button>
+              
+          </form>
+      </div>
+
+
         <div class="terms">
           By Sign In/Registration, I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
         </div>
