@@ -54,6 +54,8 @@ export class PatientDashboardComponent {
     }
   ];
 
+  addMemberSectionOpen: boolean = false;
+
   constructor(private router: Router) { }
 
   downloadCertificate(dose: string, vaccine: string, name: string): void {
@@ -76,6 +78,18 @@ export class PatientDashboardComponent {
         patient: JSON.stringify(patient),
         appoinment: JSON.stringify(appointment)
       }
-    })
+    });
+  }
+
+  addMember(): void {
+    this.addMemberSectionOpen = true;
+  }
+
+  cencelButton(event: any): void {
+    this.addMemberSectionOpen = false;
+  }
+
+  memberRegistered(event: boolean): void {
+    this.addMemberSectionOpen = false;
   }
 }

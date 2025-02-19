@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 interface VaccinationCenter {
   name: string;
@@ -45,10 +46,15 @@ export class VaccinationCenterResultComponent implements OnInit {
   ];
 
   filteredCenters: VaccinationCenter[] = [];
+  loggedInUser: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.authService.getUser().subscribe((user:any) => {
+      this.loggedInUser = user;
+    });
+
     this.generateDateRange();
     this.selectedDate = this.availableDates[0];
     this.filterCenters();
@@ -124,14 +130,18 @@ export class VaccinationCenterResultComponent implements OnInit {
   }
 
   bookSlot(centerName: string, slotTime: string): void {
-    this.router.navigate(['/layout/patient/appoinment-confirmation'], {
-      queryParams: {
-        center: centerName,
-        date: this.selectedDate,
-        time: slotTime,
-        patient: JSON.stringify(this.patient),
-        appoinment: JSON.stringify(this.appoinment)
-      }
-    });
+    if(!this.loggedInUser) {
+      this.router.navigate(['/auth/login']);
+    } else {
+      this.router.navigate(['/layout/patient/appoinment-confirmation'], {
+        queryParams: {
+          center: centerName,
+          date: this.selectedDate,
+          time: slotTime,
+          patient: JSON.stringify(this.patient),
+          appoinment: JSON.stringify(this.appoinment)
+        }
+      });
+    }
   }
 }

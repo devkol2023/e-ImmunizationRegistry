@@ -4,7 +4,7 @@
       <span class="logo-text">MOHW</span>
     </div>
     <div class="navbar-links">
-      <a routerLink="/home" class="navbar-link">Home</a>
+      <a (click)="homeClicked()" class="navbar-link">Home</a>
       <!-- <a href="#" class="navbar-link">ABHA ID</a> -->
       <!-- <a href="#" class="navbar-link">Videos</a> -->
       <!-- <a href="#" class="navbar-link">Platforms</a> -->
@@ -18,7 +18,54 @@
           <option value="Hindi">Hindi</option>
         </select>
       </div>
-      <button class="button" (click)="login()">Register / Sign In</button>
+      <button *ngIf="!loggedInUser; else loggedInTemplate" class="button" (click)="login()">Register / Sign In</button>
+
+      <ng-template #loggedInTemplate>
+        <div class="logged-in-actions">
+          <button class="notification-bell" (click)="toggleNotificationPanel()">
+            <mat-icon class="notification-icon">notifications</mat-icon>
+            <span class="badge">{{notifications.length}}</span>
+          </button>
+          <div class="notification-drawer" *ngIf="isNotificationOpen">
+            <div class="drawer-header">Notifications</div>
+            <ul class="notification-list">
+              <li *ngFor="let notification of notifications" class="notification-item">
+                <span class="notification-text">{{ notification }}</span>
+                <mat-icon class="icon-check-circle" matTooltip="Mark as read" (click)="markAsRead(notification)">check_circle</mat-icon>
+              </li>
+              <li *ngIf="!notifications?.length" class="notification-item">
+                <span class="notification-text" style="justify-content: center;">No notification found</span>
+              </li>
+            </ul>
+            <div>
+              <button class="btn mt-2" *ngIf="notifications?.length" style="margin-bottom: 10px; margin-left: 93px;" (click)="goToViewAll()">View More</button>
+            </div>
+          </div>
+          
+          <mat-icon class="profile-icon" (click)="toggleProfileDropdown()">account_circle</mat-icon>
+          <div class="notification-drawer drawer" [class.show]="isProfileDropdownOpen" *ngIf="isProfileDropdownOpen">
+            <div class="dropdown-header">
+              <div class="user-info">
+                <mat-icon>account_circle</mat-icon>
+                <div class="user-details">
+                  <strong>{{loggedInUser?.name}}</strong> <br />
+                  <!-- <small> {{loggedInUser?.role}} - {{roleDesc}}</small> -->
+                </div>
+              </div>
+            </div>
+            <hr />
+            <button *ngIf="loggedInUser?.role === 'Candidate'" class="dropdown-item" (click)="updateProfile()">
+              <i class="fa-solid fa-user"></i> &nbsp; Update Profile
+            </button>
+            <button class="dropdown-item" (click)="changePassword()">
+              <i class="fa-solid fa-key"></i> &nbsp; Change Passowrd
+            </button>
+            <button class="dropdown-item" (click)="onLogout()">
+              <i class="fa-solid fa-right-from-bracket"></i> &nbsp; Logout
+            </button>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </div>
   

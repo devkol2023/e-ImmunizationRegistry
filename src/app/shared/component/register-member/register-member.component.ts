@@ -1,17 +1,22 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-register-member',
   templateUrl: './register-member.component.html',
   styleUrl: './register-member.component.scss'
 })
 export class RegisterMemberComponent {
-  registrationForm!: FormGroup;
-@Output() cancel:EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() cancel:EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() memberRegistered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  registrationForm!: FormGroup;
+  loggedInUser: any;
+
+  constructor(private fb: FormBuilder, private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -21,15 +26,23 @@ export class RegisterMemberComponent {
       photoIdProof: ['', Validators.required],
       photoIdNumber: ['', Validators.required]
     });
+
+    this.authService.getUser().subscribe((user:any) => {
+      this.loggedInUser = user;
+    });
   }
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      this.router.navigate(['/layout/patient/dashboard']);
+      if (this.loggedInUser) {
+        this.memberRegistered.emit(true);
+      } else {
+        this.authService.login(this.registrationForm.value);
+        this.router.navigate(['/layout/patient/dashboard']);
+      }
     }
   }
   onCancel(){
-    // this.location.back()
-    this.cancel.emit(false);
+    this.cancel.emit(true);
   }
 }

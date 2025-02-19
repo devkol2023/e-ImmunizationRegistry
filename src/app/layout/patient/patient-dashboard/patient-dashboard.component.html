@@ -1,4 +1,4 @@
-<div class="dashboard-container">
+<div *ngIf="!addMemberSectionOpen" class="dashboard-container">
   <!-- Header Section -->
   <div class="header">
     <h2 class="header-txt">MOHW Jamaica Vaccination Portal</h2>
@@ -6,7 +6,7 @@
       <button mat-raised-button class="btn action-btn">
         <mat-icon>report_problem</mat-icon> Raise an Issue
       </button>
-      <button mat-raised-button class="btn action-btn">
+      <button mat-raised-button class="btn action-btn" (click)="addMember()">
         <mat-icon>person_add</mat-icon> Add Member
       </button>
     </div>
@@ -99,3 +99,7 @@
     </mat-card>
   </div>
 </div>
+
+<ng-container *ngIf="addMemberSectionOpen">
+  <app-register-member (cancel)="cencelButton($event)" (memberRegistered)="memberRegistered($event)"></app-register-member>
+</ng-container>
