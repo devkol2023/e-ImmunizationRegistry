@@ -1,0 +1,87 @@
+
+  /* Card Styling */
+  .vaccination-card {
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .vaccination-card:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Header Styling */
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  /* User Icon */
+  .user-icon {
+    font-size: 35px;
+    color: #007bff;
+    width: 30px;
+  }
+  
+  /* Three Dots Menu Icon */
+  .menu-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #6c757d;
+  }
+  
+  /* Details Section */
+  mat-card-content {
+    padding: 20px;
+  }
+  
+  /* Alert Box */
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #f5c6cb;
+    background-color: #fbeaea;
+    color: #721c24;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px; /* Adds spacing between buttons */
+    margin-bottom: 20px; /* Adds margin below buttons */
+  }
+
+  /* Button Styling */
+.action-btn {
+    font-weight: bold;
+    white-space: nowrap;
+    width: 157px !important;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .button-container {
+        align-items: center;
+        gap: 10px;
+      }
+
+      .action-btn {
+        width: 100%; /* Make buttons full width for better mobile UX */
+      }
+    mat-card-actions {
+      flex-direction: column;
+      text-align: center;
+    }
+    .d-flex.justify-content-between.align-items-center {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  

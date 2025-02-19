@@ -1,1 +1,70 @@
-<p>patient-dashboard works!</p>
+<div class="container mt-4">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3>MOHW Jamaica Vaccination Portal</h3>
+      <div class="button-container">
+        <button mat-raised-button class="btn action-btn">
+          <mat-icon>report_problem</mat-icon> Raise an Issue
+        </button>
+        <button mat-raised-button class="btn action-btn">
+          <mat-icon>person_add</mat-icon> Add Member
+        </button>
+      </div>
+    </div>
+  
+    <!-- Vaccination Cards Loop -->
+    <div *ngFor="let patient of patients" class="mb-4">
+      <mat-card class="vaccination-card">
+        <!-- Header with User Icon -->
+        <mat-card-header>
+          <mat-card-title class="d-flex align-items-center">
+            <mat-icon class="user-icon">person</mat-icon>
+            <span class="ms-3">{{ patient.name }}</span>
+          </mat-card-title>
+
+          <!-- Menu Icon with Dropdown -->
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon class="menu-icon">more_vert</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editPatient(patient)">
+              <mat-icon>edit</mat-icon> Edit
+            </button>
+            <button mat-menu-item (click)="deletePatient(patient)">
+              <mat-icon>delete</mat-icon> Delete
+            </button>
+          </mat-menu>
+        </mat-card-header>
+  
+        <!-- Personal Details -->
+        <mat-card-content>
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>REF ID:</strong> <span class="text-danger">{{ patient.refId }}</span></p>
+              <p><strong>SECRET CODE:</strong> {{ patient.secretCode }}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>PHOTO ID:</strong> {{ patient.photoId }}</p>
+              <p><strong>ID NUMBER:</strong> {{ patient.idNumber }}</p>
+              <p><strong>YEAR OF BIRTH:</strong> {{ patient.birthYear }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+  
+        <!-- Vaccination Status & Action -->
+        <mat-card-actions align="end" class="alert-danger">
+          <div class="d-flex align-items-center">
+            <mat-icon class="text-danger me-2">error_outline</mat-icon>
+            <div>
+              <strong>{{ patient.dose }}</strong>: Appointment not scheduled
+            </div>
+          </div>
+          <button mat-raised-button class="btn">
+            <mat-icon>event</mat-icon> Schedule
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  

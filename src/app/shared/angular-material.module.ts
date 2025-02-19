@@ -28,6 +28,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from "@angular/material/slider";
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
   declarations: [],
@@ -67,7 +68,8 @@ import { MatSliderModule } from "@angular/material/slider";
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule
   ],
   exports: [
     MatToolbarModule,
@@ -106,7 +108,8 @@ import { MatSliderModule } from "@angular/material/slider";
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule
   ],
 })
 export class AngularMaterialModule {}
