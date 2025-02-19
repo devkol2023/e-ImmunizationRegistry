@@ -49,5 +49,5 @@
     </mat-tab-group>
 </div>
 <ng-container *ngIf="showSearchResult">
-    <app-vaccination-center-result></app-vaccination-center-result>
+    <app-vaccination-center-result [patient]="patient" [appoinment]="appoinment"></app-vaccination-center-result>
 </ng-container>

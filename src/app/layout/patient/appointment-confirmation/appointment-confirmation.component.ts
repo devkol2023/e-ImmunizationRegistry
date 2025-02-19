@@ -14,6 +14,8 @@ export class AppointmentConfirmationComponent {
   userName: string = '';
   userId: string = '';
   userPhone: string = '';
+  patient: any;
+  appoinment: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -23,7 +25,11 @@ export class AppointmentConfirmationComponent {
       this.selectedCenter = params['center'];
       this.selectedDate = params['date'];
       this.selectedTime = params['time'];
+      this.patient = JSON.parse(params['patient']);
+      this.appoinment = JSON.parse(params['appoinment']);
     });
+    this.userId = this.patient?.idNumber;
+    this.userName = this.patient?.name;
   }
 
   confirmBooking(): void {

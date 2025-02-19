@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface VaccinationCenter {
@@ -14,6 +14,9 @@ interface VaccinationCenter {
   styleUrl: './vaccination-center-result.component.scss'
 })
 export class VaccinationCenterResultComponent implements OnInit {
+  @Input() patient!: any;
+  @Input() appoinment!: any;
+
   selectedDate: string = '';
 
   availableDates: string[] = [];
@@ -125,7 +128,9 @@ export class VaccinationCenterResultComponent implements OnInit {
       queryParams: {
         center: centerName,
         date: this.selectedDate,
-        time: slotTime
+        time: slotTime,
+        patient: JSON.stringify(this.patient),
+        appoinment: JSON.stringify(this.appoinment)
       }
     });
   }

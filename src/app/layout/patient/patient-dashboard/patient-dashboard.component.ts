@@ -71,6 +71,11 @@ export class PatientDashboardComponent {
   }
 
   schedule(patient: Patient, appointment: Appointment): void {
-    this.router.navigate(['/layout/patient/schedule-appoinment'])
+    this.router.navigate(['/layout/patient/schedule-appoinment'], {
+      queryParams: {
+        patient: JSON.stringify(patient),
+        appoinment: JSON.stringify(appointment)
+      }
+    })
   }
 }

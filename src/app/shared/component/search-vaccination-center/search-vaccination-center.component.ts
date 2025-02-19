@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-vaccination-center',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './search-vaccination-center.component.scss'
 })
 export class SearchVaccinationCenterComponent implements OnInit {
+  @Input() patient!: any;
+  @Input() appoinment!: any;
+
   selectedState: string = '';
   selectedDistrict: string = '';
   pinCode: string = '';

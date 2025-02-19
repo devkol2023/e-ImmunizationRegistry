@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-member',
   templateUrl: './register-member.component.html',
@@ -9,7 +10,8 @@ import { Location } from '@angular/common';
 export class RegisterMemberComponent {
   registrationForm!: FormGroup;
 @Output() cancel:EventEmitter<boolean> = new EventEmitter<boolean>()
-  constructor(private fb: FormBuilder,private location:Location) { }
+
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -23,8 +25,7 @@ export class RegisterMemberComponent {
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      console.log(this.registrationForm.value);
-      // handle form submission, e.g., send data to backend
+      this.router.navigate(['/layout/patient/dashboard']);
     }
   }
   onCancel(){

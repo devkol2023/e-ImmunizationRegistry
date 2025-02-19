@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Register for Vaccination</h2>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" placeholder="Enter your name">
       </mat-form-field>
@@ -12,12 +12,12 @@
         <mat-radio-button value="other">Other</mat-radio-button>
       </mat-radio-group>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Year of Birth</mat-label>
         <input matInput type="number" formControlName="yearOfBirth">
       </mat-form-field>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Photo ID Proof</mat-label>
         <mat-select formControlName="photoIdProof">
           <mat-option value="">Select your ID Proof</mat-option>
@@ -27,13 +27,13 @@
         </mat-select>
       </mat-form-field>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Photo ID Number</mat-label>
         <input matInput formControlName="photoIdNumber" placeholder="Enter your Photo ID Number">
       </mat-form-field>
   
-      <button class="btn" type="submit">Register</button>
-      <button class="btn" type="submit" (click)="onCancel()" style="margin-left: 10px;">Cancel</button>
+      <button class="btn" type="submit" (click)="onCancel()">Cancel</button>
+      <button class="btn" type="submit" style="margin-left: 10px;">Register</button>
     </form>
   </div>
   
