@@ -1,0 +1,38 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  mat-form-field {
+    width: 100%;
+    padding: 0 8px;
+  }
+  
+  mat-radio-group {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+  }
+  
+  .mat-radio-button {
+    margin-right: 15px;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .error {
+    border: 1px solid red;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+    border-top: 0;
+  }
+
+  
