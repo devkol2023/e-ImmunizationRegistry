@@ -1,0 +1,104 @@
+<div class="tableDataList">
+    <!-- Search Bar -->
+    <div class="toolbar">
+        <div class="page-size-selector">
+            <label for="itemsPerPage">Items per page:</label>
+            <select id="itemsPerPage" [(ngModel)]="paginationConfig.itemsPerPage"
+                (change)="handleItemsPerPageChange($event)">
+                <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+            </select>
+        </div>
+        <div  *ngIf="searchRequired" class="search-bar">
+            <label for="search">Search:</label>
+            <input id="search" type="text" [(ngModel)]="searchQuery" (keyup)="handleSearch(searchQuery)" />
+        </div>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let col of columns" [style.cursor]="'pointer'" [style.width]="col.width || 'auto'"
+                    style="border: 1px solid #e3e6ec !important"  (click)="sortTable(col.key)">
+                    {{ col.label }}
+                    <span *ngIf="sortConfig.active === col.key">
+                        {{ sortConfig.direction === 'asc' ? '▲' : '▼' }}
+                    </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="sortedData && sortedData.length > 0 ;else norecords">
+                <tr *ngFor="let row of sortedData | paginate: paginationConfig">
+                    <td style="border: 1px solid #e3e6ec !important" [ngClass]="col.key == 'checkbox' ? 'checkbox-cell' : ''" *ngFor="let col of columns">
+
+                        <!-- Check if column is checkbox -->
+                        <ng-container *ngIf="col.key === 'checkbox'">
+                            <mat-checkbox [(ngModel)]="row.checked" (change)="onCheckboxChange(row, $event.checked)"></mat-checkbox>
+                        </ng-container>
+
+                        <!-- Check if the column type is date -->
+                        <span *ngIf="col.type === 'date'">{{ row[col.key] | date: 'dd/MM/yyyy' }}</span>
+
+                        
+                        <!-- Check if the column is 'status' -->
+                        <ng-container *ngIf="col.key === 'status'">
+                            <div
+                                [ngStyle]="{'background-color': getStatusColor(row[col.key]), 'color': 'white', 'border-radius': '5px', 'padding': '3px 8px', 'text-align': 'center', 'width': '80%'}">
+                                {{ row[col.key] }}
+                            </div>
+                        </ng-container>
+
+
+                          <!-- Check if the column is 'toggle' -->
+                          <ng-container *ngIf="col.key === 'toggle'">
+                            <label class="custom-toggle">
+                                <input type="checkbox" [(ngModel)]="row.toggle" (change)="onToggleChange($event)" id="toggleCheckbox">
+                                <span class="slider">
+                                  <span class="checkmark">✔</span>
+                                </span>
+                              </label>
+                            </ng-container>
+                            
+                        <ng-container *ngIf="col.type === 'button'">
+                            <button class="btn" type="button" (click)="onButtonClick(col)">
+                                {{col.name}}
+                              </button>
+                        </ng-container>
+    
+                        <!-- Check if the column type is action -->
+                        <ng-container *ngIf="col.type === 'action'">
+                            <button mat-icon-button *ngIf="row?.actions?.viewDetails" class="btn-delete" matTooltip="View">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+
+                            <!-- <button mat-icon-button matTooltip="Download" class="btn-delete" (click)="downloadFile()">
+                                <mat-icon>download</mat-icon>
+                            </button> -->
+
+                            <button mat-icon-button *ngIf="row?.actions?.location" matTooltip="Show Location" class="btn-delete">
+                                <mat-icon class="mat-icon-btn">place</mat-icon>
+                            </button>
+                        </ng-container>
+    
+                        <!-- Default value for other columns -->
+                        <span *ngIf="(!col.type || col.type !== 'action') && col.key !== 'status'">{{ row[col.key] }}</span>
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-template #norecords>
+                <tr>
+                  <td colspan="8" style="text-align: center;">No record found</td>
+              </tr>
+              </ng-template>
+        </tbody>
+    </table>
+
+    <!-- Pagination and Page Size Selector -->
+    <div *ngIf="sortedData && sortedData.length > 0" class="pagination-container">
+        <div class="pagination-info">
+            Showing {{ firstItemIndex + 1 }} to {{ lastItemIndex }} of {{ totalItems }} entries
+          </div>
+        <pagination-controls [id]="paginationConfig.id" (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+</div>

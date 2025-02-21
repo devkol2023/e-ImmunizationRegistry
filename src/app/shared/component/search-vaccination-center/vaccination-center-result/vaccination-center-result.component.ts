@@ -36,7 +36,7 @@ export class VaccinationCenterResultComponent implements OnInit {
     {
       name: 'Portmore Medical Center',
       address: '456 Hope Rd, Portmore, Jamaica',
-      type: 'PRIVATE',
+      type: 'GOVT',
       slots: [
         { date: '2025-02-21', time: 'NA', status: 'NA' },
         { date: '2025-02-22', time: '09:00 AM - 03:00 PM', status: 'Available' },

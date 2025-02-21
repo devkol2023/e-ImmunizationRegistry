@@ -1,0 +1,81 @@
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+  }
+  
+  .dashboard-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .stats-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .theme-card {
+    text-align: center;
+    flex: 1;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  }
+  
+  .icon.success {
+    color: #28a745;
+    font-size: 37px;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .icon.info {
+    color: #007bff;
+    font-size: 37px;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .icon.warning {
+    color: #ffc107;
+    font-size: 37px;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .theme-button {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .theme-button.alert {
+    background: #dc3545;
+  }
+  
+  .appointments-card {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background: #ffffff;
+  }
+  
+  .custom-table {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .stat-value {
+    font-size: 30px;
+    font-weight: 600;
+  }

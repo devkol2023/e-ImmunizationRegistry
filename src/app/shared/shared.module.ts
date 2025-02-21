@@ -5,7 +5,8 @@ import { SearchVaccinationCenterComponent } from './component/search-vaccination
 import { VaccinationCenterResultComponent } from './component/search-vaccination-center/vaccination-center-result/vaccination-center-result.component';
 import { FaqSectionComponent } from './component/faq-section/faq-section.component';
 import { RegisterMemberComponent } from './component/register-member/register-member.component';
-
+import { TableComponent } from './table/table.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -14,14 +15,16 @@ import { RegisterMemberComponent } from './component/register-member/register-me
     SearchVaccinationCenterComponent,
     VaccinationCenterResultComponent,
     FaqSectionComponent,
-    RegisterMemberComponent
+    RegisterMemberComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    NgxPaginationModule
   ],
   exports: [AngularMaterialModule, SearchVaccinationCenterComponent, VaccinationCenterResultComponent,
-    FaqSectionComponent,RegisterMemberComponent
+    FaqSectionComponent,RegisterMemberComponent, TableComponent, NgxPaginationModule
   ]
 })
 export class SharedModule { }
