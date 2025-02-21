@@ -2,80 +2,114 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     background: #f8f9fa;
-  }
-  
-  .dashboard-title {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .stats-grid {
-    display: flex;
+}
+
+/* Grid Layout for Statistics Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-content: center;
-  }
-  
-  .theme-card {
+    align-items: stretch;
+}
+
+/* General Card Styling */
+.theme-card {
     text-align: center;
-    flex: 1;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
     background: linear-gradient(135deg, #e3f2fd, #ffffff);
-  }
-  
-  .icon.success {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 30px;
+    height: 40px;
+    width: 40px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.icon.success {
     color: #28a745;
-    font-size: 37px;
-    height: 40px;
-    width: 40px;
-  }
-  
-  .icon.info {
+}
+
+.icon.info {
     color: #007bff;
-    font-size: 37px;
-    height: 40px;
-    width: 40px;
-  }
-  
-  .icon.warning {
+}
+
+.icon.warning {
     color: #ffc107;
-    font-size: 37px;
-    height: 40px;
-    width: 40px;
-  }
-  
-  .theme-button {
-    background: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-  }
-  
-  .theme-button.alert {
-    background: #dc3545;
-  }
-  
-  .appointments-card {
+}
+
+/* Stats Number Styling */
+.stat-value {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Styling for Vaccine Stock Alerts */
+.vaccine-stock-alerts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 15px;
+}
+
+/* Vaccine Stock List */
+.stock-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.stock-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.vaccine-name {
+    font-weight: bold;
+}
+
+.vaccine-stock {
+    color: #333;
+}
+
+/* Low Stock Highlight */
+.vaccine-stock.low-stock {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Upcoming Appointments Card */
+.appointments-card {
     margin-top: 25px;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     background: #ffffff;
-  }
-  
-  .custom-table {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .stat-value {
-    font-size: 30px;
-    font-weight: 600;
-  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

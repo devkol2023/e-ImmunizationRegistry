@@ -8,7 +8,12 @@ import { Component } from '@angular/core';
 export class HealthWorkerDashboardComponent {
   totalVaccinationsToday = 150;
   newPatientsRegistered = 45;
-  vaccineStockAlerts = 5;
+  vaccineStockAlerts = [
+    { name: 'Pfizer', stock: 10, threshold: 15 },
+    { name: 'Moderna', stock: 5, threshold: 10 },
+    { name: 'AstraZeneca', stock: 8, threshold: 12 },
+    { name: 'J&J', stock: 3, threshold: 8 }
+  ];
 
   tableColumns = [
     { key: 'appointmentRefNo', label: 'Appointment Ref No', width: '12%' },

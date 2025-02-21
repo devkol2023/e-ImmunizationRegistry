@@ -7,6 +7,7 @@ import { FaqSectionComponent } from './component/faq-section/faq-section.compone
 import { RegisterMemberComponent } from './component/register-member/register-member.component';
 import { TableComponent } from './table/table.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AddVaccineModalComponent } from './modal/add-vaccine-modal/add-vaccine-modal.component';
 
 
 
@@ -16,7 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VaccinationCenterResultComponent,
     FaqSectionComponent,
     RegisterMemberComponent,
-    TableComponent
+    TableComponent,
+    AddVaccineModalComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule
   ],
   exports: [AngularMaterialModule, SearchVaccinationCenterComponent, VaccinationCenterResultComponent,
-    FaqSectionComponent,RegisterMemberComponent, TableComponent, NgxPaginationModule
+    FaqSectionComponent,RegisterMemberComponent, TableComponent, NgxPaginationModule,
+    AddVaccineModalComponent
   ]
 })
 export class SharedModule { }

@@ -4,8 +4,9 @@ import { HealthWorkerComponent } from './health-worker.component';
 import { HealthWorkerDashboardComponent } from './health-worker-dashboard/health-worker-dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: HealthWorkerComponent},
-  { path: 'dashboard', component: HealthWorkerDashboardComponent}
+  { path: '', component: HealthWorkerComponent },
+  { path: 'dashboard', component: HealthWorkerDashboardComponent },
+  { path: 'vaccination', loadChildren: () => import('./vaccinations/vaccinations.module').then(m => m.VaccinationsModule) },
 ];
 
 @NgModule({
