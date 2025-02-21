@@ -127,6 +127,7 @@ export class TableComponent {
         return 'green';
       case 'pending':
       case 'expiring soon':
+      case 'low stock':
         return '#EFA601'; // Orange for pending status
       case 'missed':
       case 'cancelled':
@@ -137,7 +138,6 @@ export class TableComponent {
         return 'blue';
       case 'completed':
       case 'administered':
-      case 'low stock':
         return 'purple';
       default:
         return 'gray';

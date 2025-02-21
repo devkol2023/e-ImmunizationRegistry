@@ -21,9 +21,9 @@ export class InventoryComponent implements OnInit {
 
   vaccineInventory = [
     { name: 'Pfizer', stock: 10, expiry: '2025-03-15', status: '' }, // Expiring Soon
-    { name: 'Moderna', stock: 5, expiry: '2024-05-20', status: '' }, // Low Stock
+    { name: 'Moderna', stock: 50, expiry: '2024-05-20', status: '' }, // Low Stock
     { name: 'AstraZeneca', stock: 50, expiry: '2025-07-10', status: '' },
-    { name: 'J&J', stock: 3, expiry: '2025-02-28', status: '' } // Expired
+    { name: 'J&J', stock: 23, expiry: '2025-02-28', status: '' } // Expired
   ];
 
   paginationConfig = {
@@ -70,12 +70,12 @@ export class InventoryComponent implements OnInit {
 
   updateVaccineStatuses(): void {
     this.vaccineInventory.forEach((vaccine) => {
-      if (this.isExpired(vaccine.expiry)) {
+      if (this.isLowStock(vaccine.stock)) {
+        vaccine.status = 'Low Stock';
+      } else if (this.isExpired(vaccine.expiry)) {
         vaccine.status = 'Expired';
       } else if (this.isExpiringSoon(vaccine.expiry)) {
         vaccine.status = 'Expiring Soon';
-      } else if (this.isLowStock(vaccine.stock)) {
-        vaccine.status = 'Low Stock';
       } else {
         vaccine.status = 'Good';
       }
