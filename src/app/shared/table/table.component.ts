@@ -121,19 +121,23 @@ export class TableComponent {
   }
 
   getStatusColor(status: string): string {
-    switch (status.toLowerCase()) {
+    switch (status?.toLowerCase()) {
       case 'confirmed':
+      case 'good':
         return 'green';
       case 'pending':
+      case 'expiring soon':
         return '#EFA601'; // Orange for pending status
       case 'missed':
       case 'cancelled':
+      case 'expired':
         return 'red';
       case 'rescheduled':
       case 'scheduled':
         return 'blue';
       case 'completed':
       case 'administered':
+      case 'low stock':
         return 'purple';
       default:
         return 'gray';
