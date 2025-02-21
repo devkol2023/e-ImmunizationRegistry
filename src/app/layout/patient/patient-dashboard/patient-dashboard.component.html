@@ -76,7 +76,7 @@
       </mat-card-content>      
 
       <!-- Vaccination Appointments -->
-      <div class="appointments">
+      <div class="appointments mt-1">
         <div *ngFor="let appointment of patient.appointments" class="appointment-card" [ngClass]="appointment.status">
           <div class="appointment-info">
             <mat-icon *ngIf="appointment.status === 'Completed'" class="check-icon">check_circle</mat-icon>

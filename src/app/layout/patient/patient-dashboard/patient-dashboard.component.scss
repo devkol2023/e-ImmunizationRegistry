@@ -36,13 +36,14 @@
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
   padding: 20px;
+  background: #e3e3e3;
 }
 
 /* Modernized Patient Info Design */
 .patient-header {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 7px;
   background: linear-gradient(135deg, #6a6a6a 0%, #3b646f 100%);
   color: white;
   border-radius: 8px 8px 0 0;

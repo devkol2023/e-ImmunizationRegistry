@@ -6,19 +6,19 @@
 
     <!-- Tabs for Search Options -->
     <mat-tab-group class="search-tabs" (selectedTabChange)="onTabChanged($event);">
-        <mat-tab label="By District">
+        <mat-tab label="By Parish">
             <div class="search-form">
                 <!-- Dropdowns in same row -->
                 <div class="dropdowns">
-                    <mat-form-field appearance="outline">
+                    <!-- <mat-form-field appearance="outline">
                         <mat-label>Select Your State</mat-label>
                         <mat-select [(value)]="selectedState" (selectionChange)="onStateChange()">
                             <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
                         </mat-select>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field appearance="outline">
-                        <mat-label>Select Your District</mat-label>
+                        <mat-label>Select Your Parish</mat-label>
                         <mat-select [(value)]="selectedDistrict">
                             <mat-option *ngFor="let district of districts" [value]="district">
                                 {{ district }}

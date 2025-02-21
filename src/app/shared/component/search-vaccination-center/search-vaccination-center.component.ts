@@ -14,7 +14,8 @@ export class SearchVaccinationCenterComponent implements OnInit {
   pinCode: string = '';
 
   states: string[] = ['Jamaica', 'Kingston', 'St. Andrew', 'Portmore'];
-  districts: string[] = []; // Will be updated dynamically
+  districts: string[] = ['CLARENDON', 'HANOVER', 'KINGSTON', 'MANCHESTER', 'PORTLAND', 'ST. ANDREW', 'ST. ANN',
+    'ST. CATHERINE', 'ST. ELIZABETH', 'ST. JAMES', 'ST. MARY', 'ST. THOMAS', 'TRELAWNY', 'WESTMORELAND'];
   showSearchResult: boolean = false;
 
   // Define stateDistricts with explicit types
@@ -39,7 +40,7 @@ export class SearchVaccinationCenterComponent implements OnInit {
   }
 
   searchByDistrict() {
-    if (this.selectedState && this.selectedDistrict) {
+    if (this.selectedDistrict) {
       this.showSearchResult = true;
       // alert(`Searching centers in ${this.selectedDistrict}, ${this.selectedState}`);
     } else {
