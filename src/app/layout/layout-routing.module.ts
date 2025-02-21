@@ -4,7 +4,6 @@ import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [{ path: '', component: LayoutComponent },
 { path: 'patient', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) },
-{ path: 'vaccination', loadChildren: () => import('./vaccination/vaccination.module').then(m => m.VaccinationModule) },
 { path: 'health-worker', loadChildren: () => import('./health-worker/health-worker.module').then(m => m.HealthWorkerModule) },
 ];
 
