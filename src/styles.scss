@@ -32,3 +32,54 @@ mat-form-field {
     color: #004d40 !important;
     margin-bottom: 20px;
 }
+
+.full-width {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    background: #007F7F !important;
+    overflow-x: hidden;
+    height: 55px;
+    overflow-y: hidden;
+}
+
+.modal-title {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    margin-bottom: 0 !important;
+    padding: 12px 10px;
+    border: none !important;
+    border-radius: 4px !important;
+    // background: #007F7F !important;
+    color: white !important;
+    display: block;
+  }
+
+ .mat-mdc-dialog-surface {
+    border-radius: 0 !important;
+  }
+
+  .icon-red {
+    color: white !important;
+    top: 3px;
+  }
+
+  .group-form-field {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 20px;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }

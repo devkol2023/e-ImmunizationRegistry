@@ -1,0 +1,43 @@
+<div class="dashboard-container">
+    <div class="stats-grid">
+      <mat-card class="stat-card theme-card">
+        <mat-card-content>
+          <mat-icon class="icon success">vaccines</mat-icon>
+          <h5>Total Vaccinations Today</h5>
+          <p class="stat-value">{{ totalVaccinationsToday }}</p>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="stat-card theme-card">
+        <mat-card-content>
+          <mat-icon class="icon info">group_add</mat-icon>
+          <h5>New Patients Registered</h5>
+          <p class="stat-value">{{ newPatientsRegistered }}</p>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="stat-card theme-card">
+        <mat-card-content>
+          <mat-icon class="icon warning">error</mat-icon>
+          <h5>Vaccine Stock Alerts</h5>
+          <ul class="stock-list">
+            <li *ngFor="let vaccine of vaccineStockAlerts">
+              <span class="vaccine-name">{{ vaccine.name }}</span>
+              <span class="vaccine-stock" [ngClass]="{'low-stock': vaccine.stock < vaccine.threshold}">
+                {{ vaccine.stock }} doses left
+              </span>
+            </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <mat-card class="appointments-card theme-card">
+      <mat-card-content style="padding: 0;">
+        <h2 class="header-txt">Upcoming Vaccination Appointments</h2>
+        <app-table [columns]="tableColumns" [data]="upcomingAppointments" [paginationConfig]="paginationConfig"
+            (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)"></app-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,41 @@
+.inventory-card {
+    padding: 20px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Status Labels */
+  .status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .expired {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .warning {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .low {
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  .normal {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  /* Low Stock Styling */
+  .low-stock {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,20 @@
+<mat-card class="inventory-card pt-0">
+    <mat-card-title>
+      <h2 class="header-txt">Vaccine Inventory</h2>
+    </mat-card-title>
+  
+    <!-- Add Vaccine Button -->
+     <div style="display: flex;justify-content: right;margin-top: -30px;" class="mb-2">
+         <button mat-raised-button class="btn" (click)="openDialog()">+ Add Vaccine</button>
+     </div>
+  
+    <!-- Common Table -->
+    <app-table 
+      [columns]="tableColumns" 
+      [data]="vaccineInventory" 
+      [paginationConfig]="paginationConfig"
+      (onItemsPerPageChange)="updateItemsPerPage($event)" 
+      (onPageChange)="updatePage($event)">
+    </app-table>
+  </mat-card>
+  
