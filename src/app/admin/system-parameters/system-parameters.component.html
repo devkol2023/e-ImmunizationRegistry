@@ -1,0 +1,105 @@
+<div class="page-container">
+
+    <div class="scheme-configuration-card registration-card">
+      <div class="header-txt">
+        System Parameters
+        </div>
+       
+            <div class="Udyam-check">
+                <form [formGroup]="systemParamsForm">
+                    <mat-accordion multi style="text-align: left;">
+                        <mat-expansion-panel [expanded]="true">
+                            <mat-expansion-panel-header class="header">
+                                <mat-panel-title>System Parameters</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="group-form-field" style="margin-top: 10px;">
+                                    <!-- Document Upload Size -->
+                                    <mat-form-field appearance="outline" class="half-width">
+                                        <mat-label>Document Upload Size (MB)</mat-label>
+                                        <input matInput formControlName="documentUploadSize" type="number"/>
+                                        <mat-error *ngIf="systemParamsForm.get('documentUploadSize')?.touched && systemParamsForm.get('documentUploadSize')?.invalid">
+                                            This field is required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                
+                                    <!-- Password Expire Time -->
+                                    <mat-form-field appearance="outline" class="half-width">
+                                        <mat-label>Password Expire Time (Days)</mat-label>
+                                        <input matInput formControlName="passwordExpireTime" type="number"/>
+                                        <mat-error *ngIf="systemParamsForm.get('passwordExpireTime')?.touched && systemParamsForm.get('passwordExpireTime')?.invalid">
+                                            This field is required.
+                                        </mat-error>
+                                    </mat-form-field>
+
+                                    <!-- Invalid Login Attempt Count -->
+                                    <mat-form-field appearance="outline" class="half-width">
+                                        <mat-label>Invalid Login Attempt Count</mat-label>
+                                        <input matInput formControlName="invalidLoginAttempts" type="number"/>
+                                        <mat-error *ngIf="systemParamsForm.get('invalidLoginAttempts')?.touched && systemParamsForm.get('invalidLoginAttempts')?.invalid">
+                                            This field is required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class="container">
+                                <!-- File Types for eFile System -->
+                                <div class="registration-item">
+                                    <label>File Types for Bank of St. Vincent System and Grenadines<span class="red-asterisk">*</span></label>
+                                    <div class="checkbox-group">
+                                        <mat-checkbox *ngFor="let fileType of fileTypes" [value]="fileType" formControlName="fileTypes">{{ fileType }}</mat-checkbox>
+                                    </div>
+                                </div>
+                
+                                <!-- Email Notification Applicable -->
+                                <div class="registration-item">
+                                    <label>Email Notification Applicable<span class="red-asterisk">*</span></label>
+                                    <mat-radio-group class="form-control" formControlName="emailNotification">
+                                        <mat-radio-button value="yes">Yes</mat-radio-button>
+                                        <mat-radio-button value="no">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                
+                                <!-- System Notification Applicable -->
+                                <div class="registration-item">
+                                    <label>System Notification Applicable<span class="red-asterisk">*</span></label>
+                                    <mat-radio-group formControlName="systemNotification" class="form-control">
+                                        <mat-radio-button value="yes">Yes</mat-radio-button>
+                                        <mat-radio-button value="no">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                
+                                <!-- Enable Two-Factor Authentication -->
+                                <div class="registration-item">
+                                    <label>Enable Two-Factor Authentication<span class="red-asterisk">*</span></label>
+                                    <mat-radio-group class="form-control" formControlName="twoFactorAuth">
+                                        <mat-radio-button value="yes">Yes</mat-radio-button>
+                                        <mat-radio-button value="no">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                
+                                <!-- Auto-Deletion of Archived Documents -->
+                                <!-- <div class="registration-item">
+                                    <label>Auto-Deletion of Archived Documents (Days)<span class="red-asterisk">*</span></label>
+                                    <input class="form-control" formControlName="autoDeletionDays" type="number" placeholder="Enter number of days" />
+                                    <div class="error-message" *ngIf="systemParamsForm.get('autoDeletionDays')?.touched && systemParamsForm.get('autoDeletionDays')?.invalid">
+                                        <small *ngIf="systemParamsForm.get('autoDeletionDays')?.hasError('required')">This field is required.</small>
+                                    </div>
+                                </div>
+                 -->
+                            </div>
+                
+                            <div style="float: right; margin-top: 10px; display: flex; gap: 15px;">
+                                <button class="btn" type="submit">Save</button>
+                                <button class="btn" type="button" (click)="systemParamsForm.reset()">Reset</button>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </form>
+                
+            </div>
+        
+    </div>
+</div>
+
+
+

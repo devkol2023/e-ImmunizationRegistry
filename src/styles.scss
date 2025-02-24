@@ -68,3 +68,18 @@ mat-form-field {
     color: white !important;
     top: 3px;
   }
+
+  .group-form-field {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 20px;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }
