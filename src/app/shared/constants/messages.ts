@@ -1,0 +1,20 @@
+export const messages = {
+    confirmation: 'Are you sure?',
+    invalidUserNameorPassword: 'Invalid username or password',
+    registredSuccessfully: 'Your registration has been successfully completed. <br > Application no - <b><NO></b>',
+    closeButton: 'Close',
+    profileUpdatedheader: 'Profile updated',
+    applicationSubmittedSuccessfully: 'Your application has been successfully updated.',
+    errorOccured: 'Error Occured!',
+    applicationError: `We're sorry, something went wrong. Please try again later.`,
+    registrationError: 'There was an error during registration. Please try again.',
+    feedbackSentMsg: 'Feedback submitted successfully.',
+    invalidFileFormat: 'Invalid file format. Only PDF and JPG and PNG are allowed.',
+    profileUpdated: 'Profile updated successfully.',
+    succussed: 'Success!',
+    jobAppliedSuccessfully: 'Your application has been submitted successfully. <br /> Reference No: <b>(number)</b>',
+    jobPostedSuccessfully: 'Job posted successfully.',
+    deleteConfirmation: 'You want to delete this item?',
+    appoinmentConfirmationMsg: 'Appointment confirmed at <b> (center) </b> on <b> (on) </b> at <b> (at) </b>',
+    fillAlltheFields: 'Please fill in all required fields'
+}

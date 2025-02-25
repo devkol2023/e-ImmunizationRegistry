@@ -34,7 +34,7 @@
   
     <mat-card class="appointments-card theme-card">
       <mat-card-content style="padding: 0;">
-        <h2 class="header-txt">Upcoming Vaccination Appointments</h2>
+        <h2 class="header-txt mb-0">Upcoming Vaccination Appointments</h2>
         <app-table [columns]="tableColumns" [data]="upcomingAppointments" [paginationConfig]="paginationConfig"
             (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)"></app-table>
       </mat-card-content>

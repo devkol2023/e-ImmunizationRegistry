@@ -28,9 +28,9 @@ export class VaccinationCenterResultComponent implements OnInit {
       address: '123 Main St, Kingston, Jamaica',
       type: 'GOVT',
       slots: [
-        { date: '2025-02-20', time: '09:00 AM - 01:00 PM', status: 'Available' },
-        { date: '2025-02-21', time: 'NA', status: 'NA' },
-        { date: '2025-02-22', time: 'NA', status: 'NA' },
+        { date: '2025-02-25', time: '09:00 AM - 01:00 PM', status: 'Available' },
+        { date: '2025-02-26', time: 'NA', status: 'NA' },
+        { date: '2025-02-27', time: 'NA', status: 'NA' },
       ],
     },
     {
@@ -38,9 +38,9 @@ export class VaccinationCenterResultComponent implements OnInit {
       address: '456 Hope Rd, Portmore, Jamaica',
       type: 'GOVT',
       slots: [
-        { date: '2025-02-21', time: 'NA', status: 'NA' },
-        { date: '2025-02-22', time: '09:00 AM - 03:00 PM', status: 'Available' },
-        { date: '2025-02-23', time: 'NA', status: 'NA' },
+        { date: '2025-02-25', time: 'NA', status: 'NA' },
+        { date: '2025-02-26', time: '09:00 AM - 03:00 PM', status: 'Available' },
+        { date: '2025-02-27', time: 'NA', status: 'NA' },
       ],
     }
   ];
