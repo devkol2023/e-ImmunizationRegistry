@@ -1,0 +1,20 @@
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<!-- Popup Modal -->
+<div class="popup-modal" *ngIf="showPopup">
+  <div class="popup-modal-content">
+    <div class="modal-header custom-header">
+      <h2 class="modal-title mt-0">{{ popupTitle }}</h2>
+      <button mat-icon-button class="icon-red" (click)="closePopup()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+    <div class="popup-body">
+      <p><strong>Date:</strong> {{ popupDate }}</p>
+      <p><strong>Time:</strong> {{ popupTime }} - {{ popupEndTime }}</p>
+      <p><strong>Location:</strong> {{ popupLocation }}</p>
+      <p><strong>Description:</strong> {{ popupDescription }}</p>
+      <p *ngIf="popupAttendees?.length"><strong>Attendees:</strong> {{ popupAttendees?.join(', ') }}</p>
+    </div>
+  </div>
+</div>
