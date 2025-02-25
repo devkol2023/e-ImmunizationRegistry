@@ -21,8 +21,8 @@ export class HealthWorkerDashboardComponent {
     { key: 'vaccineType', label: 'Vaccine Type', width: '15%' },
     { key: 'clinicLocation', label: 'Clinic Location', width: '15%' },
     { key: 'doseNumber', label: 'Dose Number', width: '10%' },
-    { key: 'appointmentDate', label: 'Appointment Date', width: '10%' },
-    { key: 'appointmentTime', label: 'Appointment Time', width: '10%' },
+    { key: 'appointmentDate', label: 'Date', width: '10%' },
+    { key: 'appointmentTime', label: 'Time', width: '10%' },
     { key: 'status', label: 'Status', width: '10%' }
   ];
   

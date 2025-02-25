@@ -6,7 +6,7 @@ import { ScheduleAppoinmentComponent } from './schedule-appoinment/schedule-appo
 import { AppointmentConfirmationComponent } from './appointment-confirmation/appointment-confirmation.component';
 
 const routes: Routes = [
-  { path: '', component: PatientComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: PatientDashboardComponent },
   { path: 'schedule-appoinment', component: ScheduleAppoinmentComponent },
   { path: 'appoinment-confirmation', component: AppointmentConfirmationComponent }
