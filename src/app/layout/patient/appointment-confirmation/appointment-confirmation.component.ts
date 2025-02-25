@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { messages } from '../../../shared/constants/messages';
+import { MessageDialogService } from '../../../shared/services/message-dialog.service';
 
 @Component({
   selector: 'app-appointment-confirmation',
@@ -17,7 +19,9 @@ export class AppointmentConfirmationComponent {
   patient: any;
   appoinment: any;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router,
+    private dialogMessage: MessageDialogService
+  ) {}
 
   ngOnInit(): void {
     // Retrieve parameters from the URL
@@ -34,12 +38,30 @@ export class AppointmentConfirmationComponent {
 
   confirmBooking(): void {
     if (!this.userName || !this.userId || !this.userPhone) {
-      alert("Please fill in all required fields!");
+      this.dialogMessage.open({
+        title: messages.errorOccured,
+        message: messages.fillAlltheFields,
+        iconType: 'warning',
+        buttons: [
+          { text: 'Ok', style: 'primary-btn' },
+        ]
+      });
       return;
     }
-
-    alert(`Appointment confirmed at ${this.selectedCenter} on ${this.selectedDate} at ${this.selectedTime}`);
-    this.router.navigate(['/layout/patient/dashboard']); // Redirect after confirmation
+    this.dialogMessage.open({
+      title: messages.succussed,
+      message: messages.appoinmentConfirmationMsg.replace('(center)', this.selectedCenter)
+        .replace('(on)', this.selectedDate)
+        .replace('(at)', this.selectedTime),
+      iconType: 'success',
+      buttons: [
+        { text: 'Ok', style: 'primary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Ok') {
+        this.router.navigate(['/layout/patient/dashboard']); // Redirect after confirmation
+      }
+    });
   }
 
   cancelBooking(): void {
