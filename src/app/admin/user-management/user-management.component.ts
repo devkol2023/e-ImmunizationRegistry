@@ -9,7 +9,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UserManagementComponent implements OnInit {
   userForm!: FormGroup;
   titles: string[] = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Prof.'];
-  roles: string[] = ['HR Manager', 'Interviewer', 'Recruiter','Talent Acquisition Specialist'];
+  roles: string[] = ['Health Worker', 'Doctor', 'Nurse'];
   usersDetails: any[] = [];
   districtList:any[]=[];
   tableColumns = [
@@ -29,17 +29,17 @@ export class UserManagementComponent implements OnInit {
   districts: string[] = [];
   tableData: any[] = [
     {
-      name:'Micheal Jordan', roleName: 'HR Manager', userName: 'hrmanager@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
+      name:'Micheal Jordan', roleName: 'Health Worker', userName: 'healthworker@eimmunization.com' , mobileNo: '1234567890' , verified: '', toggle: true
     },
     {
-      name:'Kobe Bryant', roleName: 'Interviewer', userName: 'interviewer@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
+      name:'Kobe Bryant', roleName: 'Doctor', userName: 'doctor@eimmunization.com' , mobileNo: '1234567890' , verified: '', toggle: true
     },
     {
-      name:'Kevin Durant', roleName: 'Recruiter', userName: 'recruiter@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
+      name:'Kevin Durant', roleName: 'Nurse', userName: 'nurse@eimmunization.com' , mobileNo: '1234567890' , verified: '', toggle: true
     },
-    {
-      name:"Shaquille O'Neal", roleName: 'Talent Acquisition Specialist', userName: 'talent@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
-    }
+    // {
+    //   name:"Shaquille O'Neal", roleName: 'Talent Acquisition Specialist', userName: 'talent@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
+    // }
   ];
 
   paginationConfig = {
