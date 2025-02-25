@@ -82,7 +82,7 @@
                         </ng-container>
     
                         <!-- Default value for other columns -->
-                        <span *ngIf="(!col.type || col.type !== 'action') && col.key !== 'status'">{{ row[col.key] }}</span>
+                        <span *ngIf="(!col.type || col.type !== 'action') && col.key !== 'status' && col.key !== 'toggle'">{{ row[col.key] }}</span>
                     </td>
                 </tr>
             </ng-container>
