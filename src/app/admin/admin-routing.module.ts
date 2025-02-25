@@ -7,7 +7,7 @@ import { RoleManagementComponent } from './role-management/role-management.compo
 import { SystemParametersComponent } from './system-parameters/system-parameters.component';
 
 const routes: Routes = [
-  { path: '', component: AdminComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: AdminDashboardComponent },
   { path: 'user-management', component: UserManagementComponent },
   { path: 'role-management', component: RoleManagementComponent },
