@@ -41,7 +41,7 @@ export class AppointmentConfirmationComponent {
       this.dialogMessage.open({
         title: messages.errorOccured,
         message: messages.fillAlltheFields,
-        iconType: 'warning',
+        iconType: 'error',
         buttons: [
           { text: 'Ok', style: 'primary-btn' },
         ]
