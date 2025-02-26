@@ -1,0 +1,45 @@
+.container-new {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .styled-table th, .styled-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .styled-table th {
+    background-color: #EFA601;
+    color: black;
+    // font-weight: bold;
+  }
+  
+  .styled-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .styled-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 15px;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
