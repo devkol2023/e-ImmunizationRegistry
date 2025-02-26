@@ -1,0 +1,80 @@
+<div class="container-new">
+    <form [formGroup]="vaccineForm" (ngSubmit)="addSchedule()">
+        <div class="group-form-field">
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Hospital</mat-label>
+                <mat-select formControlName="hospital">
+                    <mat-option *ngFor="let hospital of hospitals" [value]="hospital">{{ hospital }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="vaccineForm.get('hospital')?.invalid">Hospital is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Vaccine</mat-label>
+                <mat-select formControlName="vaccine">
+                    <mat-option *ngFor="let vaccine of vaccines" [value]="vaccine">{{ vaccine }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="vaccineForm.get('vaccine')?.invalid">Vaccine is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="group-form-field">
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="startPicker" formControlName="startDate" readonly>
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                <mat-datepicker #startPicker></mat-datepicker>
+                <mat-error *ngIf="vaccineForm.get('startDate')?.invalid">Start Date is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="endPicker" formControlName="endDate" readonly>
+                <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endPicker></mat-datepicker>
+                <mat-error *ngIf="vaccineForm.get('endDate')?.invalid">End Date is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="mt-n2" style="display: flex;justify-content: end;">
+            <button mat-raised-button color="primary" type="submit" class="btn">Add</button>
+        </div>
+    </form>
+
+    <div *ngIf="schedule.length">
+        <div class="page-size-selector">
+            <label for="itemsPerPage">Items per page:</label>
+            <select id="itemsPerPage" [(ngModel)]="paginationConfig.itemsPerPage"
+                (change)="handleItemsPerPageChange($event)">
+                <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+            </select>
+        </div>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th *ngFor="let slot of timeSlots">{{ slot }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let entry of schedule | paginate: { id: paginationConfig.id, itemsPerPage: paginationConfig.itemsPerPage, currentPage: paginationConfig.currentPage }">
+                    <td>{{ entry.date }}</td>
+                    <td *ngFor="let slot of timeSlots">
+                        <input type="number" [(ngModel)]="entry.slots[slot]" min="0">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Pagination and Page Size Selector -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                Showing {{ firstItemIndex + 1 }} to {{ lastItemIndex }} of {{ totalItems }} entries
+            </div>
+            <pagination-controls [id]="paginationConfig.id"
+                (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+        <div class="mt-n2" style="display: flex;justify-content: end;">
+            <button mat-raised-button color="primary" class="btn" (click)="saveDetails()">Submit</button>
+        </div>
+    </div>
+</div>

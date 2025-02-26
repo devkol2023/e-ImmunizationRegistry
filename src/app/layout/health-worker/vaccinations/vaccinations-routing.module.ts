@@ -4,8 +4,8 @@ import { VaccinationComponent } from './vaccination.component';
 import { InventoryComponent } from './inventory/inventory.component';
 
 const routes: Routes = [
-  // { path: '', component: VaccinationComponent },
-  { path: '', redirectTo: 'inventory', pathMatch: 'full' },
+  { path: '', component: VaccinationComponent },
+  // { path: '', redirectTo: 'inventory', pathMatch: 'full' },
   { path: 'inventory', component: InventoryComponent }
 ];
 
