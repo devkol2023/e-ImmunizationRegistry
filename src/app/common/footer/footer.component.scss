@@ -1,0 +1,67 @@
+.footer {
+    background-color: #007F7F;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+    align-items: center;
+    padding: 0 10%;
+  }
+  
+  .footer-logo img {
+    width: 120px;
+    height: 50px;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .links-section h4 {
+    color: #ffffff;
+    font-size: 20px;
+  }
+  
+  .links-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .links-section li a {
+    color: #ffffff; /* Regular link color */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s; /* Smooth color transition */
+  }
+  
+  .links-section li a:hover {
+    color: #ffc107; /* Changes color to yellow on hover */
+  }
+  
+  .call-centre {
+    text-align: right;
+  }
+  
+  .phone-number {
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 20px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  .footer-bottom span {
+    font-size: 14px;
+  }
+  
